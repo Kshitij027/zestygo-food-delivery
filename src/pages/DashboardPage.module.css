@@ -1,0 +1,50 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.value {
+  font-size: 2rem;
+  margin: 0;
+  color: #9a3412;
+}
+
+.label {
+  color: #6b7280;
+  margin: 0;
+}
+
+.list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.order {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 14px;
+  padding: 0.9rem;
+}
+
+@media (max-width: 980px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.addCard {
+  margin-bottom: 2rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+}

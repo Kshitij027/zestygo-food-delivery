@@ -1,0 +1,71 @@
+/* ═══ CULINARY NOIR — Buttons ═══ */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.55rem 1.4rem;
+  border-radius: var(--radius-full, 999px);
+  font-family: var(--font, 'Inter', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition, all 0.22s ease);
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Primary — solid orange pill */
+.primary {
+  background: var(--accent, #FF4D00);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(255, 77, 0, 0.3);
+}
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover, #e64400);
+  box-shadow: 0 0 28px rgba(255, 77, 0, 0.55);
+  transform: translateY(-1px);
+}
+.primary:active:not(:disabled) { transform: scale(0.97); }
+
+/* Secondary — white bg, black text */
+.secondary {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 2px 12px rgba(255,255,255,0.08);
+}
+.secondary:hover:not(:disabled) {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+/* Ghost — dark outlined */
+.ghost {
+  background: transparent;
+  color: var(--text-secondary, #A3A3A3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text, #fff);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Inverted — white bg, black text (from design system) */
+.inverted {
+  background: #fff;
+  color: #000;
+  border: none;
+}
+.inverted:hover:not(:disabled) {
+  background: #e8e8e8;
+}
+
+/* Disabled */
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

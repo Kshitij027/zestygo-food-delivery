@@ -1,0 +1,93 @@
+{
+  "id": "zestygo-test-suite-001",
+  "version": "2.0",
+  "name": "ZestyGo_TestSuite",
+  "url": "http://localhost:3000",
+  "tests": [
+    {
+      "id": "tc01-user-login",
+      "name": "TC01_UserLogin",
+      "commands": [
+        { "id": "tc01-s01", "command": "open", "target": "http://localhost:3000/login", "targets": [], "value": "" },
+        { "id": "tc01-s02", "command": "waitForElementPresent", "target": "xpath=//h1[text()='Welcome back']", "targets": [], "value": "" },
+        { "id": "tc01-s03", "command": "verifyText", "target": "xpath=//h1[text()='Welcome back']", "targets": [], "value": "Welcome back" },
+        { "id": "tc01-s04", "command": "verifyText", "target": "xpath=//span[contains(@class,'brandName')]", "targets": [], "value": "ZestyGo" },
+        { "id": "tc01-s05", "command": "type", "target": "css=input[placeholder='Email address']", "targets": [], "value": "test@example.com" },
+        { "id": "tc01-s06", "command": "type", "target": "css=input[placeholder='Password']", "targets": [], "value": "Test@12345" },
+        { "id": "tc01-s07", "command": "click", "target": "xpath=//button[contains(text(),'Sign in')]", "targets": [], "value": "" },
+        { "id": "tc01-s08", "command": "pause", "target": "", "targets": [], "value": "3000" }
+      ]
+    },
+    {
+      "id": "tc02-search-filter",
+      "name": "TC02_SearchFilter",
+      "commands": [
+        { "id": "tc02-s01", "command": "open", "target": "http://localhost:3000/restaurants", "targets": [], "value": "" },
+        { "id": "tc02-s02", "command": "waitForElementPresent", "target": "xpath=//h1", "targets": [], "value": "" },
+        { "id": "tc02-s03", "command": "verifyText", "target": "xpath=//h1", "targets": [], "value": "Restaurants near you" },
+        { "id": "tc02-s04", "command": "type", "target": "xpath=//input[@placeholder='Search restaurants or cuisines...']", "targets": [], "value": "pizza" },
+        { "id": "tc02-s05", "command": "pause", "target": "", "targets": [], "value": "1000" },
+        { "id": "tc02-s06", "command": "verifyElementPresent", "target": "xpath=//*[contains(text(),'result')]", "targets": [], "value": "" },
+        { "id": "tc02-s07", "command": "click", "target": "xpath=//button/*[local-name()='svg']/..", "targets": [], "value": "" },
+        { "id": "tc02-s08", "command": "pause", "target": "", "targets": [], "value": "1000" },
+        { "id": "tc02-s09", "command": "click", "target": "xpath=//button[text()='Biryani']", "targets": [], "value": "" },
+        { "id": "tc02-s10", "command": "pause", "target": "", "targets": [], "value": "1000" },
+        { "id": "tc02-s11", "command": "verifyElementPresent", "target": "xpath=//*[contains(text(),'result')]", "targets": [], "value": "" }
+      ]
+    },
+    {
+      "id": "tc03-cart-management",
+      "name": "TC03_CartManagement",
+      "commands": [
+        { "id": "tc03-s01", "command": "open", "target": "http://localhost:3000/restaurant/1", "targets": [], "value": "" },
+        { "id": "tc03-s02", "command": "waitForElementPresent", "target": "xpath=//h1", "targets": [], "value": "" },
+        { "id": "tc03-s03", "command": "verifyElementPresent", "target": "xpath=//h1", "targets": [], "value": "" },
+        { "id": "tc03-s04", "command": "executeScript", "target": "document.querySelector('button[aria-label*=\"Add\"]').click()", "targets": [], "value": "" },
+        { "id": "tc03-s05", "command": "pause", "target": "", "targets": [], "value": "2000" },
+        { "id": "tc03-s06", "command": "click", "target": "xpath=//a[contains(@class,'floatingCartBtn')]", "targets": [], "value": "" },
+        { "id": "tc03-s07", "command": "pause", "target": "", "targets": [], "value": "2000" },
+        { "id": "tc03-s08", "command": "waitForElementPresent", "target": "xpath=//h1[text()='Your Cart']", "targets": [], "value": "" },
+        { "id": "tc03-s09", "command": "verifyText", "target": "xpath=//h1[text()='Your Cart']", "targets": [], "value": "Your Cart" },
+        { "id": "tc03-s10", "command": "verifyElementPresent", "target": "xpath=//h3[text()='Order Summary']", "targets": [], "value": "" },
+        { "id": "tc03-s11", "command": "click", "target": "xpath=//button[@aria-label='Increase quantity']", "targets": [], "value": "" },
+        { "id": "tc03-s12", "command": "pause", "target": "", "targets": [], "value": "500" },
+        { "id": "tc03-s13", "command": "click", "target": "xpath=//button[contains(text(),'Clear Cart')]", "targets": [], "value": "" },
+        { "id": "tc03-s14", "command": "pause", "target": "", "targets": [], "value": "500" },
+        { "id": "tc03-s15", "command": "verifyText", "target": "xpath=//h2", "targets": [], "value": "Your cart is empty" }
+      ]
+    },
+    {
+      "id": "tc04-checkout-order",
+      "name": "TC04_CheckoutOrder",
+      "commands": [
+        { "id": "tc04-s01", "command": "open", "target": "http://localhost:3000/login", "targets": [], "value": "" },
+        { "id": "tc04-s02", "command": "waitForElementPresent", "target": "xpath=//button[contains(@class,'googleBtn')]", "targets": [], "value": "" },
+        { "id": "tc04-s03", "command": "click", "target": "xpath=//button[contains(@class,'googleBtn')]", "targets": [], "value": "" },
+        { "id": "tc04-s04", "command": "pause", "target": "", "targets": [], "value": "2000" },
+        { "id": "tc04-s05", "command": "executeScript", "target": "window.location.href='/restaurant/1'", "targets": [], "value": "" },
+        { "id": "tc04-s06", "command": "pause", "target": "", "targets": [], "value": "3000" },
+        { "id": "tc04-s07", "command": "waitForElementPresent", "target": "xpath=//h1", "targets": [], "value": "" },
+        { "id": "tc04-s08", "command": "executeScript", "target": "document.querySelector('button[aria-label*=\"Add\"]').click()", "targets": [], "value": "" },
+        { "id": "tc04-s09", "command": "pause", "target": "", "targets": [], "value": "2000" },
+        { "id": "tc04-s10", "command": "click", "target": "xpath=//a[contains(@class,'floatingCartBtn')]", "targets": [], "value": "" },
+        { "id": "tc04-s11", "command": "pause", "target": "", "targets": [], "value": "2000" },
+        { "id": "tc04-s12", "command": "waitForElementPresent", "target": "xpath=//button[contains(text(),'Proceed to Checkout')]", "targets": [], "value": "" },
+        { "id": "tc04-s13", "command": "click", "target": "xpath=//button[contains(text(),'Proceed to Checkout')]", "targets": [], "value": "" },
+        { "id": "tc04-s14", "command": "pause", "target": "", "targets": [], "value": "2000" },
+        { "id": "tc04-s15", "command": "verifyElementPresent", "target": "xpath=//div[contains(@class,'orderCard')]", "targets": [], "value": "" }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-zestygo-all",
+      "name": "ZestyGo_AllTests",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": ["tc01-user-login", "tc02-search-filter", "tc03-cart-management", "tc04-checkout-order"]
+    }
+  ],
+  "urls": ["http://localhost:3000"],
+  "plugins": []
+}

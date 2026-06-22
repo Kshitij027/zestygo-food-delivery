@@ -1,0 +1,5 @@
+/* index.css — delegated to global.css via styles/global.css import in App */
+/* Minimal resets to avoid conflicts with global.css */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
